@@ -355,7 +355,7 @@ function renderProjectViewport(index, projectName) {
               {/* simplified sparkline: single stroked path, no heavy fill */}
               <path d="M0,20 L20,10 L40,18 L60,8 L80,16 L100,12" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            <div className="absolute top-2 right-2.5 text-[0.65rem] text-accent/80 font-semibold">Forecast: +14%</div>
+            <div className="absolute top-0 right-2.5 -translate-y-1 text-[0.65rem] text-accent/80 font-semibold">Forecast: +14%</div>
           </div>
           <div className="space-y-1.5 text-[0.6rem] border-t border-border/10 pt-2">
             <div className="flex justify-between text-white/70">

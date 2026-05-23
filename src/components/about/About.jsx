@@ -14,7 +14,7 @@ const About = () => {
           transition={{ duration: 0.6 }}
           className="mb-16 md:mb-20 border-l-4 border-accent pl-6 py-2"
         >
-          <p className="text-[clamp(1.25rem,3vw,1.75rem)] font-heading font-semibold text-text leading-relaxed">
+          <p className="text-[clamp(1rem,2.2vw,1.35rem)] md:text-[clamp(1.25rem,3vw,1.75rem)] font-heading font-semibold italic text-white/90 leading-relaxed tracking-tight sm:tracking-normal">
             "I design, optimize, and build backbones. Applying strict engineering discipline, algorithmic rigor, and AI-assisted workflows to translate complex architectural challenges into high-performance, production-ready systems."
           </p>
         </motion.div>

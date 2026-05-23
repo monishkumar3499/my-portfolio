@@ -24,8 +24,8 @@ const Hero = ({ isCollapsed }) => {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
           </span>
-          <span className="font-mono text-[0.6rem] md:text-[0.7rem] text-white/70 font-semibold uppercase tracking-normal md:tracking-widest">
-            <span className="text-accent font-bold">Monish Kumar V</span> - Software Engineer @ JMAN Group
+          <span className="font-mono text-[clamp(0.5rem,1.8vw,0.7rem)] text-white/70 font-semibold uppercase tracking-normal md:tracking-widest whitespace-nowrap">
+            <span className="text-accent font-bold whitespace-nowrap">Monish Kumar V</span> - Software Engineer @ JMAN Group
           </span>
         </motion.div>
 

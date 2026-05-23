@@ -21,8 +21,30 @@ function App() {
 
     checkMobile();
     window.addEventListener('resize', checkMobile);
+
+    if (typeof window !== 'undefined') {
+      if ('scrollRestoration' in window.history) {
+        window.history.scrollRestoration = 'manual';
+      }
+    }
+
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (!isMobile) return;
+
+    const scrollReset = () => {
+      window.scrollTo(0, 0);
+      if (window.location.hash) {
+        window.history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
+    };
+
+    const id = window.setTimeout(scrollReset, 20);
+    return () => window.clearTimeout(id);
+  }, [isMobile]);
 
   return (
     <div className={`relative min-h-screen text-text bg-bg selection:bg-accent/25 selection:text-text overflow-x-hidden transition-all duration-300 ${isCollapsed ? 'sidebar-collapsed' : 'sidebar-expanded'}`}>
@@ -44,12 +66,12 @@ function App() {
         className="flex-1 min-h-screen px-4 md:px-12 pb-12"
       >
         {/* Render each section with exact matching ID for anchor navigation */}
-        <div id="hero"><Hero isCollapsed={isCollapsed} /></div>
-        <div id="about"><About isCollapsed={isCollapsed} /></div>
-        <div id="experience"><Experience isCollapsed={isCollapsed} /></div>
-        <div id="projects"><Projects isCollapsed={isCollapsed} /></div>
-        <div id="skills"><Skills isCollapsed={isCollapsed} /></div>
-        <div id="achievements"><Achievements isCollapsed={isCollapsed} /></div>
+        <Hero isCollapsed={isCollapsed} />
+        <About isCollapsed={isCollapsed} />
+        <Experience isCollapsed={isCollapsed} />
+        <Projects isCollapsed={isCollapsed} />
+        <Skills isCollapsed={isCollapsed} />
+        <Achievements isCollapsed={isCollapsed} />
         
         {/* Footer */}
         <Footer isCollapsed={isCollapsed} />
