@@ -16,10 +16,20 @@
     <script>
       (function(){
         try {
+          // Prevent browsers from restoring previous scroll positions which
+          // can jump to anchors on page load. We set manual only when available.
+          if (history && typeof history.scrollRestoration !== 'undefined') {
+            try { history.scrollRestoration = 'manual'; } catch(e) { }
+          }
+
           var isMobile = typeof window !== 'undefined' && window.innerWidth <= 1024;
-          if (isMobile && window.location && window.location.hash) {
-            // Remove hash without creating a history entry
-            history.replaceState(null, '', window.location.pathname + window.location.search);
+          if (isMobile) {
+            // Force viewport to the top early to avoid anchor jumps
+            try { window.scrollTo(0,0); } catch(e) { }
+            // If URL contains a hash, remove it without creating a history entry
+            if (window.location && window.location.hash) {
+              try { history.replaceState(null, '', window.location.pathname + window.location.search); } catch(e) { }
+            }
           }
         } catch(e) { /* ignore */ }
       })();

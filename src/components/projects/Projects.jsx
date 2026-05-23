@@ -104,7 +104,21 @@ const Projects = ({ isCollapsed }) => {
   const [activeProject, setActiveProject] = useState(0);
   const blueprintRef = useRef(null);
   const isMounted = useRef(false);
-  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 1024;
+  const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' ? window.innerWidth <= 1024 : false);
+
+  useEffect(() => {
+    function onResize() {
+      setIsMobile(window.innerWidth <= 1024);
+    }
+    try {
+      window.addEventListener('resize', onResize);
+    } catch (e) {}
+    // ensure initial value is accurate
+    onResize();
+    return () => {
+      try { window.removeEventListener('resize', onResize); } catch (e) {}
+    };
+  }, []);
 
   // When activeProject changes on mobile, scroll the blueprint into view
   useEffect(() => {
