@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import Section from '../Section';
 import { motion } from 'framer-motion';
 
@@ -102,6 +102,38 @@ const Projects = ({ isCollapsed }) => {
   ];
 
   const [activeProject, setActiveProject] = useState(0);
+  const blueprintRef = useRef(null);
+  const isMounted = useRef(false);
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 1024;
+
+  // When activeProject changes on mobile, scroll the blueprint into view
+  useEffect(() => {
+    if (!isMounted.current) {
+      isMounted.current = true;
+      // If the page loaded with a hash (e.g., #projects), browsers auto-scroll to that anchor.
+      // Reset scroll to top on mobile to avoid starting at the bottom/footer unintentionally.
+      try {
+        if (typeof window !== 'undefined' && window.location && window.location.hash && isMobile) {
+          window.scrollTo(0, 0);
+        }
+      } catch (e) {}
+      return; // skip initial mount scroll
+    }
+    if (isMobile && blueprintRef.current) {
+      // slight timeout to allow layout to update
+      setTimeout(() => {
+        blueprintRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 80);
+    }
+  }, [activeProject]);
+
+  const scrollBlueprint = () => {
+    if (isMobile && blueprintRef.current) {
+      setTimeout(() => {
+        blueprintRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 80);
+    }
+  };
 
   return (
     <section id="projects" className="relative">
@@ -127,8 +159,15 @@ const Projects = ({ isCollapsed }) => {
           <div className="lg:col-span-5 flex flex-col gap-4">
             {projects.map((project, index) => (
               <motion.button
-                key={index}
-                onClick={() => setActiveProject(index)}
+                  key={index}
+                  onClick={() => {
+                    if (index === activeProject) {
+                      // if clicking the already-active project on mobile, ensure blueprint scrolls
+                      scrollBlueprint();
+                    } else {
+                      setActiveProject(index);
+                    }
+                  }}
                 whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.99 }}
                 className={`text-left p-6 rounded-[12px] border transition-all duration-300 relative overflow-hidden flex flex-col justify-between ${
@@ -154,9 +193,9 @@ const Projects = ({ isCollapsed }) => {
                   {project.summary}
                 </p>
 
-                <div className="flex flex-wrap gap-1.5">
+                <div className="flex flex-wrap gap-1">
                   {project.tech.slice(0, 3).map((t, i) => (
-                    <span key={i} className="font-mono text-[0.65rem] bg-border/20 px-2 py-0.5 rounded text-white/70 border border-border/20">
+                    <span key={i} className="font-mono text-[0.55rem] bg-border/20 px-1.5 py-0.5 rounded-sm text-white/70 border border-border/20">
                       {t}
                     </span>
                   ))}
@@ -173,6 +212,7 @@ const Projects = ({ isCollapsed }) => {
           {/* Right Column: Console Blueprint Terminal */}
           <div className="lg:col-span-7">
             <motion.div
+              ref={blueprintRef}
               key={activeProject}
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -222,11 +262,11 @@ const Projects = ({ isCollapsed }) => {
                     {/* Tech Badges Row */}
                     <div className="flex flex-col gap-2 text-left flex-none">
                       <span className="text-white/40 text-[0.75rem]">&gt; tech.stack</span>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-1">
                         {projects[activeProject].tech.map((tech, idx) => (
                           <span
                             key={idx}
-                            className="text-[0.7rem] text-accent bg-accent/5 border border-accent/20 px-2.5 py-1 rounded"
+                            className="text-[0.55rem] text-accent bg-accent/5 border border-accent/20 px-1.5 py-0.5 rounded-sm"
                           >
                             {tech}
                           </span>

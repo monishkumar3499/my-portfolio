@@ -12,7 +12,7 @@ const Hero = ({ isCollapsed }) => {
         <div className="absolute bottom-[20%] right-[10%] w-[400px] h-[400px] bg-cyan/5 rounded-full filter blur-[100px]"></div>
       </div>
 
-      <div className={`relative z-10 text-left transition-all duration-500 ${isCollapsed ? 'max-w-5xl' : 'max-w-4xl'} mx-auto w-full`}>
+  <div className={`relative z-10 transition-all duration-500 ${isCollapsed ? 'max-w-5xl' : 'max-w-4xl'} mx-auto w-full text-center md:text-left`}>
         {/* Futuristic Status Badge */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -24,7 +24,7 @@ const Hero = ({ isCollapsed }) => {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
           </span>
-          <span className="font-mono text-[0.7rem] text-white/70 font-semibold uppercase tracking-widest">
+          <span className="font-mono text-[0.6rem] md:text-[0.7rem] text-white/70 font-semibold uppercase tracking-normal md:tracking-widest">
             <span className="text-accent font-bold">Monish Kumar V</span> - Software Engineer @ JMAN Group
           </span>
         </motion.div>
@@ -54,17 +54,17 @@ const Hero = ({ isCollapsed }) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex flex-wrap items-center gap-4 mb-16"
+          className="flex flex-col sm:flex-row items-center sm:items-center gap-4 mb-16 justify-center md:justify-start"
         >
           <a
             href="mailto:monishkumar3499@gmail.com"
-            className="inline-flex items-center gap-2 px-5 py-2 bg-accent text-bg font-bold text-sm rounded-md uppercase tracking-wider transition-all duration-300 hover:bg-accent/80 hover:-translate-y-[2px] hover:shadow-[0_8px_25px_rgba(181,255,77,0.35)]"
+            className="inline-flex items-center justify-center gap-2 px-5 py-2 bg-accent text-bg font-bold text-sm rounded-md uppercase tracking-wider transition-all duration-300 hover:bg-accent/80 hover:-translate-y-[2px] hover:shadow-[0_8px_25px_rgba(181,255,77,0.35)] w-full sm:w-auto"
           >
             Get In Touch
           </a>
           <a
             href="#projects"
-            className="inline-flex items-center gap-2 px-5 py-2 bg-transparent text-text font-bold text-sm rounded-md uppercase tracking-wider border border-border hover:border-accent hover:text-accent transition-all duration-300 hover:-translate-y-[2px]"
+            className="inline-flex items-center justify-center gap-2 px-5 py-2 bg-transparent text-text font-bold text-sm rounded-md uppercase tracking-wider border border-border hover:border-accent hover:text-accent transition-all duration-300 hover:-translate-y-[2px] w-full sm:w-auto"
           >
             View Projects
           </a>
@@ -85,12 +85,12 @@ const Hero = ({ isCollapsed }) => {
           ].map((stat, idx) => (
             <div
               key={idx}
-              className="bg-card border border-border-accent/30 rounded-[10px] p-5 text-center flex flex-col justify-center items-center h-[120px] w-full hover:border-accent hover:shadow-[0_0_20px_rgba(181,255,77,0.1)] transition-all duration-300"
+              className="bg-card border border-border-accent/30 rounded-[10px] p-4 text-center flex flex-col justify-center items-center h-[96px] md:h-[120px] w-full hover:border-accent hover:shadow-[0_0_20px_rgba(181,255,77,0.1)] transition-all duration-300"
             >
-              <div className="text-[1.6rem] font-heading font-black text-accent leading-none mb-2">
+                <div className="text-[1.4rem] md:text-[1.6rem] font-heading font-black text-accent leading-none mb-2">
                 {stat.value}
               </div>
-              <div className="font-mono text-[0.65rem] text-text uppercase tracking-widest leading-snug text-center font-bold">
+                <div className="font-mono text-[0.6rem] md:text-[0.65rem] text-text uppercase tracking-widest leading-snug text-center font-bold">
                 {stat.label}
               </div>
             </div>

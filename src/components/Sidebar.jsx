@@ -95,17 +95,15 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
       {/* Mobile Header (Hamburger Toggle Top Bar) */}
       {isMobile && (
         <div className="fixed top-0 left-0 right-0 h-[60px] bg-[rgba(10,10,10,0.8)] backdrop-blur-md border-b border-border-accent/10 z-[99] flex items-center justify-between px-6">
-          <span className="font-heading font-extrabold text-[1.1rem] text-white tracking-wider uppercase">
-            MONISH KUMAR <span className="text-accent">V</span>
-          </span>
+          <span className="sr-only">Open navigation</span>
           <button
-            className="flex flex-col gap-[5px] cursor-pointer w-[24px] z-[101]"
+            className="flex flex-col gap-[6px] cursor-pointer w-[36px] h-[36px] items-center justify-center p-1 z-[101] rounded-md"
             onClick={() => setIsCollapsed(!isCollapsed)}
             aria-label="Toggle Navigation"
           >
-            <span className={`w-full h-[2px] bg-text rounded-[1px] transition-all duration-300 ${isCollapsed ? 'rotate-45 translate-y-[7px]' : ''}`}></span>
-            <span className={`w-full h-[2px] bg-text rounded-[1px] transition-all duration-300 ${isCollapsed ? 'opacity-0' : ''}`}></span>
-            <span className={`w-full h-[2px] bg-text rounded-[1px] transition-all duration-300 ${isCollapsed ? '-rotate-45 -translate-y-[7px]' : ''}`}></span>
+            <span className={`w-full h-[2px] bg-white/70 rounded-[1px] transition-all duration-300 ${isCollapsed ? 'rotate-45 translate-y-[7px]' : ''}`}></span>
+            <span className={`w-full h-[2px] bg-white/70 rounded-[1px] transition-all duration-300 ${isCollapsed ? 'opacity-0' : ''}`}></span>
+            <span className={`w-full h-[2px] bg-white/70 rounded-[1px] transition-all duration-300 ${isCollapsed ? '-rotate-45 -translate-y-[7px]' : ''}`}></span>
           </button>
         </div>
       )}

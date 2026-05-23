@@ -10,6 +10,21 @@
     <title>Monish Kumar V Portfolio</title>
   </head>
   <body>
+    <!-- Prevent automatic browser jump to anchors on mobile devices by
+         clearing the URL hash before the app mounts. This preserves
+         deep-links on desktop while avoiding unwanted auto-scroll on mobile. -->
+    <script>
+      (function(){
+        try {
+          var isMobile = typeof window !== 'undefined' && window.innerWidth <= 1024;
+          if (isMobile && window.location && window.location.hash) {
+            // Remove hash without creating a history entry
+            history.replaceState(null, '', window.location.pathname + window.location.search);
+          }
+        } catch(e) { /* ignore */ }
+      })();
+    </script>
+
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
