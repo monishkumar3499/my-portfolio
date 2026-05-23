@@ -333,7 +333,7 @@ function renderProjectViewport(index, projectName) {
       <div className="w-full h-full flex flex-col p-4 text-[0.7rem] text-left gap-3.5 font-mono bg-black/60 relative">
         <div className="flex items-center justify-between border-b border-accent/20 pb-2 mb-1">
           <span className="text-accent font-bold tracking-wider">&gt; AI_FIN_AGENT_V1.0</span>
-          <span className="text-cyan animate-pulse flex items-center gap-1.5">
+          <span className="text-cyan text-[0.6rem] md:text-[0.75rem] animate-pulse flex items-center gap-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-cyan inline-block animate-ping"></span>
             ● ACTIVE_MCP
           </span>
@@ -375,7 +375,7 @@ function renderProjectViewport(index, projectName) {
       <div className="w-full h-full flex flex-col p-4 text-[0.7rem] text-left gap-3.5 font-mono bg-black/60 relative">
         <div className="flex items-center justify-between border-b border-cyan/20 pb-2 mb-1">
           <span className="text-cyan font-bold tracking-wider">&gt; KMR_INGESTION_PIPELINE</span>
-          <span className="text-accent bg-accent/10 px-1.5 py-0.5 rounded text-[0.55rem] font-bold">97% SPEEDUP</span>
+          <span className="text-accent bg-accent/10 px-1.5 py-0.5 rounded text-[0.5rem] md:text-[0.55rem] font-bold">97% SPEEDUP</span>
         </div>
         <div className="space-y-3.5 flex-1 flex flex-col justify-between">
           <div className="space-y-1.5">
@@ -412,7 +412,7 @@ function renderProjectViewport(index, projectName) {
       <div className="w-full h-full flex flex-col p-4 text-[0.7rem] text-left gap-3.5 font-mono bg-black/60 relative">
         <div className="flex items-center justify-between border-b border-accent/20 pb-2 mb-1">
           <span className="text-accent font-bold tracking-wider">&gt; BERT_SEMANTIC_RANKER</span>
-          <span className="text-white/60 text-[0.55rem] border border-border/30 px-1.5 rounded bg-border/10">SDLC STAGED</span>
+          <span className="text-white/60 text-[0.5rem] md:text-[0.55rem] border border-border/30 px-1.5 rounded bg-border/10">SDLC STAGED</span>
         </div>
         <div className="space-y-2.5 flex-1 flex flex-col justify-between">
           <div className="text-[0.65rem] text-white/40 flex items-center justify-between">
@@ -450,7 +450,7 @@ function renderProjectViewport(index, projectName) {
       <div className="w-full h-full flex flex-col p-4 text-[0.7rem] text-left gap-3.5 font-mono bg-black/60 relative">
         <div className="flex items-center justify-between border-b border-cyan/20 pb-2 mb-1">
           <span className="text-cyan font-bold tracking-wider">&gt; AGENTIC_TELEMETRY</span>
-          <span className="text-accent font-bold text-[0.55rem] border border-accent/25 px-1.5 rounded bg-accent/5">VALUATION: AUTO</span>
+          <span className="text-accent font-bold text-[0.5rem] md:text-[0.55rem] border border-accent/25 px-1.5 rounded bg-accent/5">VALUATION: AUTO</span>
         </div>
         <div className="space-y-3 flex-1 flex flex-col justify-between">
           <div className="grid grid-cols-2 gap-2">
@@ -495,7 +495,7 @@ function renderProjectViewport(index, projectName) {
       <div className="w-full h-full flex flex-col p-4 text-[0.7rem] text-left gap-3.5 font-mono bg-black/60 relative">
         <div className="flex items-center justify-between border-b border-accent/20 pb-2 mb-1">
           <span className="text-accent font-bold tracking-wider">&gt; CHURN_PREDICT_CORE</span>
-          <span className="text-cyan text-[0.55rem] font-bold border border-cyan/25 px-1.5 rounded bg-cyan/5">XGBOOST ENABLED</span>
+          <span className="text-cyan text-[0.5rem] md:text-[0.55rem] font-bold border border-cyan/25 px-1.5 rounded bg-cyan/5">XGBOOST ENABLED</span>
         </div>
         <div className="space-y-3.5 flex-1 flex flex-col justify-between">
           <div className="grid grid-cols-3 gap-1.5">

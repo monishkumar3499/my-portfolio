@@ -9,7 +9,7 @@ const Skills = ({ isCollapsed }) => {
     },
     {
       title: 'Frameworks & APIs',
-      skills: ['REST APIs', 'FastAPI', 'Node.js', 'Express.js', 'React.js', 'Next.js', 'LangChain', 'LangGraph']
+      skills: ['REST APIs', 'Node.js', 'Express.js', 'React.js', 'Next.js', 'LangChain', 'LangGraph']
     },
     {
       title: 'AI & Agentic Engineering',
@@ -60,7 +60,7 @@ const Skills = ({ isCollapsed }) => {
               </h3>
 
               {/* Skills Row - Standard Uniform Grid */}
-              <div className={`grid gap-2.5 sm:gap-3 w-full grid-cols-3 sm:grid-cols-4 md:grid-cols-5 ${
+              <div className={`grid gap-1.5 sm:gap-2.5 w-full grid-cols-3 sm:grid-cols-4 md:grid-cols-5 ${
                 isCollapsed 
                   ? 'lg:grid-cols-7 xl:grid-cols-8' 
                   : 'lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8'
@@ -69,13 +69,13 @@ const Skills = ({ isCollapsed }) => {
                   <motion.div
                     key={idx}
                     whileHover={{ y: -3, borderColor: 'rgba(181, 255, 77, 0.4)', backgroundColor: 'rgba(181, 255, 77, 0.03)' }}
-                    className="bg-card/40 border border-border/20 rounded-[10px] py-4 px-2 sm:px-3 flex flex-col items-center justify-center text-center transition-all duration-300 group w-full min-w-0"
+                    className="bg-card/40 border border-border/20 rounded-[10px] py-1.5 md:py-4 px-1.5 sm:px-2 flex flex-col items-center justify-center text-center transition-all duration-300 group w-full min-w-0"
                   >
                     {/* SVG Icon Container */}
-                    <div className="w-[42px] h-[42px] flex items-center justify-center bg-border/20 rounded-[8px] mb-3 group-hover:bg-accent/10 transition-colors duration-300 flex-none [&_svg]:w-[22px] [&_svg]:h-[22px]">
+                    <div className="w-[28px] h-[28px] md:w-[42px] md:h-[42px] flex items-center justify-center bg-border/20 rounded-[8px] mb-2 md:mb-3 group-hover:bg-accent/10 transition-colors duration-300 flex-none [&_svg]:w-[14px] [&_svg]:h-[14px] md:[&_svg]:w-[22px] md:[&_svg]:h-[22px]">
                       {getFrameworkIcon(skill)}
                     </div>
-                    <span className="font-sans text-[0.68rem] sm:text-[0.74rem] md:text-[0.78rem] font-bold text-text group-hover:text-accent transition-colors duration-300 whitespace-normal leading-tight text-center px-0.5 w-full">
+                    <span className="font-sans text-[0.55rem] sm:text-[0.62rem] md:text-[0.78rem] font-bold text-text group-hover:text-accent transition-colors duration-300 whitespace-normal leading-tight text-center px-0.5 w-full">
                       {skill}
                     </span>
                   </motion.div>
@@ -136,13 +136,6 @@ function getFrameworkIcon(tech) {
           <circle cx="12" cy="19" r="3" stroke="currentColor" strokeWidth="2"/>
           <path d="M5 8v6a2 2 0 0 0 2 2h3m7-8v6a2 2 0 0 1-2 2h-3" stroke="currentColor" strokeWidth="2"/>
           <path d="M12 16v-4" stroke="currentColor" strokeWidth="2"/>
-        </svg>
-      );
-    case 'FastAPI':
-      return (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-[#059669]">
-          <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
-          <path d="M13 6l-5 7h4l-1 5 5-7h-4l1-5z" fill="currentColor"/>
         </svg>
       );
     case 'Node.js':
