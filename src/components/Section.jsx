@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 const Section = ({ id, children, className = '' }) => {
   return (
     <section id={id} className={`py-[55px] md:py-[75px] relative z-10 ${className}`}>
-      <div className="max-w-[1100px] mx-auto px-[5%]">
+      <div className="section-container mx-auto px-[5%]">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
